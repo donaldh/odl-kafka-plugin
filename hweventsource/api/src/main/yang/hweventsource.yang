@@ -33,4 +33,14 @@ module hweventsource {
                 "message / content of notification";
         }
     }
+    
+    notification utilization-notification {
+    	description "Utilization message from network device";
+    	
+    	leaf utilization {
+    		type uint8;
+    		mandatory true;
+    		description "Utilization percentage, 0..100";
+    	}
+    }
 }

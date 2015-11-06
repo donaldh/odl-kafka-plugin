@@ -13,6 +13,8 @@ import org.opendaylight.controller.sal.core.api.Broker.ProviderSession;
 import org.opendaylight.coretutorials.hweventsource.impl.HweventsourceBIProvider;
 import org.opendaylight.coretutorials.hweventsource.sample.HelloWorldEventSourceManager;
 import org.opendaylight.coretutorials.hweventsource.sample.SampleEventSourceGenerator;
+import org.opendaylight.coretutorials.hweventsource.sample.UtilizationEventSourceManager;
+import org.opendaylight.coretutorials.hweventsource.sample.UtilizationGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,10 +51,14 @@ public class HweventsourceModule extends org.opendaylight.yang.gen.v1.urn.openda
 
         // Instance of HelloWorldEventSourceManager manage event sources, register and unregister them via EventSourceRegistry
         final HelloWorldEventSourceManager esm = new HelloWorldEventSourceManager(eventSourceRegistry);
+        final UtilizationEventSourceManager usm = new UtilizationEventSourceManager(eventSourceRegistry);
 
         // SampleEventSourceGenerator creates given number of event source and add them into HelloWorldEventSourceManager
-        final SampleEventSourceGenerator seg = new SampleEventSourceGenerator(esm, domPublish);
-        seg.generateEventSources(numberSampleEventSources, messageGeneratePeriod, messageText);
+        //final SampleEventSourceGenerator seg = new SampleEventSourceGenerator(esm, domPublish);
+        //seg.generateEventSources(numberSampleEventSources, messageGeneratePeriod, messageText);
+
+        final UtilizationGenerator ug = new UtilizationGenerator(usm, domPublish);
+        ug.generateEventSources(numberSampleEventSources, messageGeneratePeriod);
 
         LOG.info("Hello world event source has been started");
         return new AutoCloseable() {
@@ -61,6 +67,7 @@ public class HweventsourceModule extends org.opendaylight.yang.gen.v1.urn.openda
             public void close() throws Exception {
 
             	esm.close();
+            	usm.close();
                 providerBI.close();
 
             }
