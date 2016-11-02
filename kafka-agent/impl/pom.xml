@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- vi: set et smarttab sw=4 tabstop=4: --><!--
-Copyright (c) 2014 Cisco Systems, Inc. and others.  All rights reserved.
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright (c) 2016 Cisco and/or its affiliates.
+This software is licensed to you under the terms of the Apache License, Version 2.0 (the "License").
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+The code, technical concepts, and all information contained herein, are the property of Cisco Technology, Inc.
+and/or its affiliated entities, under various laws including copyright, international treaties, patent,
+and/or contract. Any use of the material herein must be in accordance with the terms of the License.
+All rights not expressly granted by the License are reserved.
+Unless required by applicable law or agreed to separately in writing, software distributed under the
+License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+either express or implied.
 
+some portion also:
+Copyright(c) 2016 Cisco Inc. and others. All rights reserved.
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License v1.0 which accompanies this distribution,
-and is available at http://www.eclipse.org/legal/epl-v10.html
+and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
+
+Name:       Kafka-agent-impl
+Purpose:    Kafka-agent-impl module POM file
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <parent>
     <groupId>org.opendaylight.controller</groupId>
     <artifactId>config-parent</artifactId>
-    <version>0.3.0-Lithium</version>
+    <version>0.3.3-Lithium-SR3</version>
     <relativePath/>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.opendaylight.panda</groupId>
+  <groupId>org.opendaylight.kafkacluster</groupId>
   <artifactId>kafka-agent-impl</artifactId>
-  <version>1.0.0-Lithium</version>
+  <version>2.0.1-Lithium</version>
   <packaging>bundle</packaging>
   
   <dependencies>
@@ -29,12 +44,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
       <artifactId>kafka-agent-api</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <!-- Testing Dependencies -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+    
     
     <!-- OpenDayLight Lithum Dependencies -->
     <dependency>
@@ -45,18 +55,20 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
       <groupId>org.opendaylight.controller</groupId>
       <artifactId>messagebus-api</artifactId>
     </dependency>
-    
-    <!-- apache kafka servicemix bundle Dependencies -->
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!--dependency>
         <groupId>org.opendaylight.controller</groupId>
-        <artifactId>messagebus-api</artifactId>
-        <version>1.2.0-Lithium</version>
-    </dependency-->
+        <artifactId>messagebus-spi</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.opendaylight.controller</groupId>
+        <artifactId>config-api</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.opendaylight.controller</groupId>
+        <artifactId>sal-binding-config</artifactId>
+    </dependency>
+    <!-- apache kafka servicemix bundle Dependencies -->
+   
     <dependency>
         <groupId>org.apache.servicemix.bundles</groupId>
         <artifactId>org.apache.servicemix.bundles.metrics-core</artifactId>
@@ -64,8 +76,8 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     </dependency>
     <dependency>
 	<groupId>org.apache.servicemix.bundles</groupId>
-	<artifactId>org.apache.servicemix.bundles.kafka_2.10</artifactId>
-	<version>0.8.1_1</version>
+	<artifactId>org.apache.servicemix.bundles.kafka-clients</artifactId>
+	<version>0.9.0.0_1</version>
     </dependency>
     <dependency>
 	<groupId>org.apache.servicemix.bundles</groupId>
@@ -142,5 +154,23 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
 	<artifactId>netty</artifactId>
 	<version>3.7.0.Final</version>
     </dependency>
+    
+    <!-- Testing Dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+     <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
   </dependencies>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 </project>

@@ -11,15 +11,17 @@
 * either express or implied.
 * 
 
-* Name:       KafkaModuleFactory.java
-* Purpose:    Kafka module factory class
+* Name:       KafkaModuleFactoryTest.java
+* Purpose:    test case of kafka module
 *************************************************************************************************************/
-
 package org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.kafka.agent.impl.rev150922;
 
-/**
- * Kafka Agent Factory Class
- */
-public class KafkaModuleFactory extends org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.kafka.agent.impl.rev150922.AbstractKafkaModuleFactory {
+import org.junit.Test;
 
+public class KafkaModuleFactoryTest {
+    @Test
+    public void testFactoryConstructor(){
+        //ensure no exceptions on construction
+        new KafkaModuleFactory();
+    }
 }

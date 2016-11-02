@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright(c) 2015 Cisco, Inc. and others. All rights reserved.
+Copyright (c) 2016 Cisco and/or its affiliates.
+This software is licensed to you under the terms of the Apache License, Version 2.0 (the "License").
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+The code, technical concepts, and all information contained herein, are the property of Cisco Technology, Inc.
+and/or its affiliated entities, under various laws including copyright, international treaties, patent,
+and/or contract. Any use of the material herein must be in accordance with the terms of the License.
+All rights not expressly granted by the License are reserved.
+Unless required by applicable law or agreed to separately in writing, software distributed under the
+License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+either express or implied.
+
+some portion also:
+Copyright(c) 2016 Cisco Inc. and others. All rights reserved.
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License v1.0 which accompanies this distribution,
 and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
+
+Name:       Kafka-agent feature
+Purpose:    Kafka agent feature POM file
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
@@ -12,18 +27,18 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <version>1.5.0-Lithium</version>
     <relativePath/>
   </parent>
-  <groupId>org.opendaylight.panda</groupId>
+  <groupId>org.opendaylight.kafkacluster</groupId>
   <artifactId>kafka-agent-features</artifactId>
-  <version>1.0.0-Lithium</version>
+  <version>2.0.1-Lithium</version>
   <name>${project.artifactId}</name>
   <modelVersion>4.0.0</modelVersion>
   <prerequisites>
     <maven>3.1.1</maven>
   </prerequisites>
   <properties>
-    <mdsal.version>1.2.0-Lithium</mdsal.version>
-    <yangtools.version>0.7.0-Lithium</yangtools.version>
-    <netconf.version>0.3.0-Lithium</netconf.version>
+    <mdsal.version>1.2.3-Lithium-SR3</mdsal.version>
+    <yangtools.version>0.7.3-Lithium-SR3</yangtools.version>
+    <netconf.version>0.3.3-Lithium-SR3</netconf.version>
     <configfile.directory>etc/opendaylight/karaf</configfile.directory>
   </properties>
   <dependencyManagement>
@@ -58,6 +73,14 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <dependency>
       <groupId>org.opendaylight.controller</groupId>
       <artifactId>features-restconf</artifactId>
+      <classifier>features</classifier>
+      <version>${mdsal.version}</version>
+      <type>xml</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.opendaylight.controller</groupId>
+      <artifactId>features-netconf-connector</artifactId>
       <classifier>features</classifier>
       <version>${mdsal.version}</version>
       <type>xml</type>

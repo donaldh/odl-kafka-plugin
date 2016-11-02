@@ -11,15 +11,17 @@
 * either express or implied.
 * 
 
-* Name:       KafkaModuleFactory.java
-* Purpose:    Kafka module factory class
+* Name:       record.avsc
+* Purpose:    generic avro schema 
 *************************************************************************************************************/
 
-package org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.kafka.agent.impl.rev150922;
-
-/**
- * Kafka Agent Factory Class
- */
-public class KafkaModuleFactory extends org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.kafka.agent.impl.rev150922.AbstractKafkaModuleFactory {
-
+{"namespace": "%s",
+ "type": "record",
+ "name": "event",
+ "fields": [
+     {"name": "timestamp", "type": "long"},
+     {"name": "src",       "type": "string"},
+     {"name": "host_ip",   "type": "string"},
+     {"name": "rawdata",   "type": "bytes"}
+ ]
 }
