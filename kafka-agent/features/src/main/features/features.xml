@@ -24,6 +24,7 @@ Purpose:    Kafka agent feature POM file
   <repository>mvn:org.opendaylight.netconf/features-netconf-connector/${netconf.version}/xml/features</repository>
   
   <feature name='odl-kafka-agent-api' version='${project.version}' description='OpenDaylight :: kafka-agent :: api'>
+    <feature version='${mdsal.version}'>odl-mdsal-common</feature>
     <bundle>mvn:org.opendaylight.kafkacluster/kafka-agent-api/${project.version}</bundle>
   </feature>
   <feature name='odl-kafka-agent' version='${project.version}' description='OpenDaylight :: kafka-agent'>
