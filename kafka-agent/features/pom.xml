@@ -92,13 +92,6 @@ Purpose:    Kafka agent feature POM file
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>kafka-agent-impl</artifactId>
-      <version>${project.version}</version>
-      <type>xml</type>
-      <classifier>config</classifier>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
       <artifactId>kafka-agent-api</artifactId>
       <version>${project.version}</version>
     </dependency>

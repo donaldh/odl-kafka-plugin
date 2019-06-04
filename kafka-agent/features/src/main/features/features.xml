@@ -42,7 +42,6 @@ Purpose:    Kafka agent feature POM file
     <bundle dependency='true'>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
     <bundle dependency='true'>mvn:org.xerial.snappy/snappy-java/1.1.1.6</bundle>
     <bundle>mvn:org.opendaylight.kafkacluster/kafka-agent-impl/${project.version}</bundle>
-    <configfile finalname="${configfile.directory}/kafka-agent.xml">mvn:org.opendaylight.kafkacluster/kafka-agent-impl/${project.version}/xml/config</configfile>
   </feature>
   <feature name='odl-kafka-agent-rest' version='${project.version}' description='OpenDaylight :: kafka-agent :: REST'>
     <feature version="${project.version}">odl-kafka-agent</feature>
